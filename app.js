@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const Job = require('./model/Job')
+var port = process.env.PORT || 8080
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -11,7 +12,7 @@ app.use((req, res, next) => {
 
 mongoose.connect('mongodb://shubham:shubham123@ds018168.mlab.com:18168/nn-outh-test')
   .then(() => {
-    app.listen(5000, () => console.log('app running on port 5000'))
+    app.listen(port, () => console.log('app running on port 5000'))
   })
   .catch((err) => {
     console.log(err);
